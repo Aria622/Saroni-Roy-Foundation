@@ -4,8 +4,12 @@ import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight} from "lucide-react";
+import { useState } from "react";
+import JoinUsModal from "./JoinUsModal";
 
 const TestimonialsSection = () => {
+  const [isJoinUsModalOpen, setIsJoinUsModalOpen] = useState(false);
+
   return (
     <section id="involve" className="py-12 md:py-16 lg:py-20 bg-black border-t border-white/5">
       <div className="container mx-auto px-4">
@@ -50,17 +54,23 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="text-center mt-12" >
-          <Link to="/">
-            <Button className="bg-yellow-500 text-black hover:bg-yellow-500/90
+          <Button 
+            onClick={() => setIsJoinUsModalOpen(true)}
+            className="bg-yellow-500 text-black hover:bg-yellow-500/90
             px-12 py-6 rounded-full text-xl font-semibold
             flex items-center gap-4 mx-auto shadow-lg transition">
-              Join Us
-              <ArrowRight className="w-6 h-6" />
-            </Button>
-          </Link>
+            Join Us
+            <ArrowRight className="w-6 h-6" />
+          </Button>
         </div>
 
       </div>
+      
+      {/* Join Us Modal */}
+      <JoinUsModal 
+        isOpen={isJoinUsModalOpen} 
+        onClose={() => setIsJoinUsModalOpen(false)} 
+      />
     </section>
   );
 };
@@ -73,9 +83,9 @@ const involveItems = [
     img: "/lovable-uploads/people.png",
   },
   {
-    title: "Career",
+    title: "Sponsors",
     body:
-      "Passionate about driving change in menstrual hygiene management? If the thought of transforming the world excites you, explore our open positions today.",
+      "Join our network of corporate, media, and NGO sponsors who are committed to advancing women's health and gender equality. Together, we can create meaningful partnerships that drive social change.",
     img: "/lovable-uploads/bag.png",
   },
   {

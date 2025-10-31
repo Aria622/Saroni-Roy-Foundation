@@ -142,8 +142,21 @@ const Footer = () => {
           </div> */}
           
           <div className="w-full max-w-[420px] mx-auto">
-            <h3 className="text-xl font-bold mb-6 text-white tracking-tight">Subscribe for our newsletter.</h3>
-            <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
+            {/* <h3 className="text-xl font-bold mb-6 text-white tracking-tight">Subscribe for our newsletter.</h3> */}
+            
+            {/* LinkedIn Newsletter Link */}
+            {/* <div className="mb-6">
+              <Button 
+                type="button"
+                onClick={() => window.open("https://www.linkedin.com/company/saroni-roy-foundation/", "_blank")}
+                className="bg-[#c9a300] text-black hover:bg-white/90 rounded-full w-full mb-4"
+              >
+                Subscribe to LinkedIn Newsletter
+              </Button>
+              <p className="text-white/60 text-sm text-center">Or fill out the form below for direct updates</p>
+            </div> */}
+            
+            {/* <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
               <Input
                 type="text"
                 name="firstName"
@@ -170,16 +183,23 @@ const Footer = () => {
                 onChange={handleInputChange}
                 className="bg-white/5 border-white/10 placeholder:text-white/50 text-white"
                 required
-              />
-              <Button 
+              /> */}
+              {/* <Button 
                 type="submit"
                 variant="secondary" 
                 className="bg-white text-black hover:bg-white/90 rounded-full"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Subscribing..." : "Subscribe"}
+              </Button> */}
+               <Button 
+                type="button"
+                onClick={() => window.open("https://www.linkedin.com/company/saroni-roy-foundation/", "_blank")}
+                className="bg-[#c9a300] text-black hover:bg-white/90 rounded-full w-full mb-4"
+              >
+                Subscribe
               </Button>
-            </form>
+            {/* </form> */}
           </div>
         </div>
         

@@ -110,7 +110,7 @@ const Navbar = () => {
                 ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
                 : 'text-white/80 hover:text-white'}`}
           >
-            News
+            Projects
           </a>
           
           <a
@@ -125,36 +125,36 @@ const Navbar = () => {
                 ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
                 : 'text-white/80 hover:text-white'}`}
           >
-            Involve
+            Get Involved
           </a>
         </nav>
 
-        {/* Desktop Button */}
-        {/* <div className="hidden md:block">
+        {/* Desktop Subscribe Button */}
+        <div className="hidden md:block">
           <Button 
             type="button"
-            onClick={() => window.open("https://www.linkedin.com/newsletters/7317904143652663296/?displayConfirmation=true", "_blank")}
+            onClick={() => window.open("https://www.linkedin.com/company/saroni-roy-foundation/", "_blank")}
             className="bg-[#c9a300] text-black hover:bg-white/90 text-lg lg:text-xl rounded-full px-6"
           >
             Subscribe
           </Button>
-        </div> */}
+        </div>
 
         {/* Social Media */}
         <div className="flex space-x-4">
-          <a href="https://www.facebook.com/saroni.roy" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Facebook">
+          <a href="https://www.facebook.com/saroniroyfoundationindiaausgoodwillambassador/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Facebook">
             <Facebook size={28} />
           </a>          
-          <a href="https://www.instagram.com/saroroy/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
+          <a href="https://www.instagram.com/saroniroyfoundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
             <Instagram size={28} />     
           </a>     
           <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Twitter">
                         <Twitter size={28} />  
           </a>    
-          <a href="https://www.linkedin.com/in/saroniroy/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                         <Linkedin size={28} />
           </a>
-          <a 
+          {/* <a 
             href="https://imdb.me/SaroniRoy" 
             target="_blank" 
             rel="noopener noreferrer" 
@@ -162,7 +162,7 @@ const Navbar = () => {
             aria-label="IMDb"
           >
             <FaImdb size={28} />
-          </a>
+          </a> */}
         </div>
 
         {/* Mobile Menu Button */}

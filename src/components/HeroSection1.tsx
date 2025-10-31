@@ -77,7 +77,7 @@ const HeroSection = () => {
             md:px-6 md:py-6 md:text-[17px]
             lg:px-8 lg:py-8 lg:text-xl
             xl:px-10 xl:py-9 xl:text-2xl">
-            Download E-book
+            Donate
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
