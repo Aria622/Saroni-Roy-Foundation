@@ -79,7 +79,7 @@ const involveItems = [
   {
     title: "Volunteer",
     body:
-      "Passionate about making an on-ground impact? Click here to join our team at the Saroni Roy Foundation and conduct menstrual hygiene workshops while spreading awareness!",
+      "Passionate about making an on-ground impact Click here to join our team at the Saroni Roy Foundation and conduct menstrual hygiene workshops while spreading awareness!",
     img: "/lovable-uploads/people.png",
   },
   {
