@@ -10,7 +10,7 @@ const FullScreenCarousel: React.FC = () => {
 
 
   const images: CarouselImage[] = [
-    { src: '/lovable-uploads/bg1.png', alt: 'image 1' },
+    { src: '/lovable-uploads/Restored.jpg', alt: 'image 1' },
     { src: '/lovable-uploads/CarouselImg1.jpg', alt: 'image 2' },
   ];
 
