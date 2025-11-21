@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-black">
       <div className="container mx-auto flex items-center justify-between h-30 px-8">
         <div className="flex items-center space-x-3">
           {/* Updated logo - clickable to go home */}
