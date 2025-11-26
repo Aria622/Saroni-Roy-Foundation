@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Play, MapPin, Users, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DonateModal from "./DonateModal";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [statsCounter, setStatsCounter] = useState(0);
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -64,7 +66,7 @@ const HeroSection = () => {
               Explore Platform
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button onClick={() => scrollToSection('intro')} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
+            <Button onClick={() => navigate('/video')} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
             rounded-md lg:rounded-lg xl:rounded-xl shadow-md
             px-6 py-6 text-base
             md:px-6 md:py-6 md:text-[17px]
