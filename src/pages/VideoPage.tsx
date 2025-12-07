@@ -1,42 +1,66 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { VideoCard } from '../components/VideoCard';
+import { VideoModal } from '../components/VideoModal';
 import { VideoContent } from '../types/video';
+
+// Helper function to extract file ID from Google Drive URL
+const extractFileId = (url: string): string | null => {
+  const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  return match ? match[1] : null;
+};
+
+// Helper function to generate Google Drive thumbnail URL
+const generateThumbnailUrl = (videoUrl: string, width: number = 600, height: number = 400): string => {
+  const fileId = extractFileId(videoUrl);
+  if (fileId) {
+    // Use Google Drive thumbnail API
+    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w${width}-h${height}`;
+  }
+  // Fallback to placeholder if URL is invalid
+  return 'https://picsum.photos/id/1025/600/400';
+};
 
 const MOCK_VIDEOS: VideoContent[] = [
   {
     id: '1',
     title: 'Maheene Ko Sehat Se Jodo: Can Tata Trusts Reframe Periods?',
     description: 'Menstruation, even today, remains clouded by stigma and silence. Journalist Anuradha SenGupta speaks with Tata Trusts\' Divyang Waghela and Deepshikha Surendran about the insights behind the social behaviour change campaign aimed at reframing conversations.',
-    thumbnailUrl: 'https://picsum.photos/id/1025/600/400',
-    videoDuration: '4:21'
+    thumbnailUrl: generateThumbnailUrl('https://drive.google.com/file/d/14S96ZD6S24bgy_0kCNJGS298rmvpmviA/view?usp=drive_link'),
+    videoDuration: '4:21',
+    videoUrl: 'https://drive.google.com/file/d/14S96ZD6S24bgy_0kCNJGS298rmvpmviA/view?usp=drive_link'
   },
   {
     id: '2',
     title: 'Soch badalne ka maheena aa gaya',
     description: 'For generations, the arrival of menstruation has been met with silence, shame, or worry. But what if we saw it for what it truly is—a natural symbol of good health? The film "Soch badalne ka maheena aa gaya" attempts to bring this shift in perspective.',
-    thumbnailUrl: 'https://picsum.photos/id/1012/600/400',
-    videoDuration: '3:45'
+    thumbnailUrl: generateThumbnailUrl('https://drive.google.com/file/d/1iZmSrV5ZtZuEJ6pvUe8ebiuaS8ZkGAw9/view?usp=drive_link'),
+    videoDuration: '3:45',
+    videoUrl: 'https://drive.google.com/file/d/1iZmSrV5ZtZuEJ6pvUe8ebiuaS8ZkGAw9/view?usp=drive_link'
   },
   {
     id: '3',
     title: 'Breaking the Silence: Rural Perspectives',
     description: 'Travel into the heart of rural India where community leaders are challenging age-old myths. This documentary style short captures the raw emotion and the gradual acceptance of new health norms within traditional family structures.',
-    thumbnailUrl: 'https://picsum.photos/id/1027/600/400',
-    videoDuration: '5:10'
+    thumbnailUrl: generateThumbnailUrl('https://drive.google.com/file/d/1h2TCitcJUJqbaDELL6OFzvGm1w74p5Ne/view?usp=drive_link'),
+    videoDuration: '5:10',
+    videoUrl: 'https://drive.google.com/file/d/1h2TCitcJUJqbaDELL6OFzvGm1w74p5Ne/view?usp=drive_link'
   },
   {
     id: '4',
     title: 'Health is Empowerment',
     description: 'When women prioritize their health, the entire community thrives. Watch inspiring stories of young girls who have become health advocates in their villages, driving change one conversation at a time.',
-    thumbnailUrl: 'https://picsum.photos/id/342/600/400',
-    videoDuration: '2:55'
+    thumbnailUrl: generateThumbnailUrl('https://drive.google.com/file/d/145d9qawFMxfjh-hK84uZrHQrQvAk70Gd/view?usp=drive_link'),
+    videoDuration: '2:55',
+    videoUrl: 'https://drive.google.com/file/d/145d9qawFMxfjh-hK84uZrHQrQvAk70Gd/view?usp=drive_link'
   }
 ];
 
 export const VideoPage: React.FC = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [selectedVideo, setSelectedVideo] = useState<VideoContent | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Responsive items per page
   useEffect(() => {
@@ -90,7 +114,7 @@ export const VideoPage: React.FC = () => {
       
       {/* Header */}
       <div className="mb-12 text-center transform hover:scale-105 transition-transform duration-500 cursor-default">
-        <h1 className="text-5xl md:text-6xl font-script text-brand-red mb-2 drop-shadow-sm">
+        <h1 className="text-5xl md:text-6xl font-script mb-2 drop-shadow-sm text-[#8b0000]">
           #Maheene Ko Sehat Se Jodo
         </h1>
       </div>
@@ -118,7 +142,14 @@ export const VideoPage: React.FC = () => {
                 <div key={video.id} className="animate-fadeIn">
                   <VideoCard 
                     video={video} 
-                    onClick={() => console.log(`Play video ${video.id}`)} 
+                    onClick={() => {
+                      if (video.videoUrl) {
+                        setSelectedVideo(video);
+                        setIsVideoModalOpen(true);
+                      } else {
+                        console.log(`Video ${video.id} has no video URL`);
+                      }
+                    }} 
                   />
                 </div>
               ))}
@@ -175,6 +206,19 @@ export const VideoPage: React.FC = () => {
           animation: fadeIn 0.5s ease-out forwards;
         }
       `}</style>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <VideoModal
+          isOpen={isVideoModalOpen}
+          onClose={() => {
+            setIsVideoModalOpen(false);
+            setSelectedVideo(null);
+          }}
+          videoUrl={selectedVideo.videoUrl || ''}
+          title={selectedVideo.title}
+        />
+      )}
     </div>
   );
 };

@@ -30,9 +30,9 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video, onClick }) => {
         </div>
 
         {/* Duration Badge */}
-        <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
+        {/* <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
           {video.videoDuration}
-        </div>
+        </div> */}
       </div>
 
       {/* Content Section */}
