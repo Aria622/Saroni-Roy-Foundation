@@ -47,17 +47,17 @@ const FullScreenCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden" data-carousel="true">
+    <div className="relative w-full h-screen overflow-hidden bg-black" data-carousel="true">
       <div 
         className="flex transition-transform duration-500 ease-in-out h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="w-full h-full flex-shrink-0">
+          <div key={index} className="w-full h-full flex-shrink-0 flex items-center justify-center p-8">
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover"
+              className="max-w-[80%] max-h-[80%] w-auto h-auto object-contain"
             />
           </div>
         ))}

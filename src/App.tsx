@@ -14,6 +14,7 @@ import LicenseDisclosure from "./pages/LicenseDisclosure";
 import Accessibility from "./pages/Accessibility";
 import CookiePolicy from "./pages/CookiePolicy";
 import Redirect from "./pages/Redirect";
+import { VideoPage } from "./pages/VideoPage";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/license-disclosure" element={<LicenseDisclosure />} />
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/video" element={<VideoPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
