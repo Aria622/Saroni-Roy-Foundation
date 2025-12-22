@@ -27,7 +27,7 @@ const StorySection = () => {
               <div className="group h-full bg-gradient-to-br from-zinc-900/80 to-black/80 border border-white/10 rounded-3xl p-10 backdrop-blur-md hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                 <div className="flex items-center mb-8">
                   <div>
-                    <h3 className="text-3xl font-bold text-white mb-2">HOLISTIC CARE</h3>
+                    <h3 className="text-3xl font-bold text-white mb-2">HOLISTIC EDUCATION</h3>
                   </div>
                 </div>
     

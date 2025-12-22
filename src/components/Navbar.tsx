@@ -148,8 +148,8 @@ const Navbar = () => {
           <a href="https://www.instagram.com/saroniroyfoundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
             <Instagram size={28} />     
           </a>     
-          <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Twitter">
-                        <Twitter size={28} />  
+          <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X">
+                        <X size={28} />  
           </a>    
           <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                         <Linkedin size={28} />
