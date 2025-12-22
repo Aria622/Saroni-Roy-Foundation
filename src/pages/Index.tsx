@@ -6,6 +6,7 @@ import StorySection from "@/components/StorySection";
 import NewArrivalsSection from "@/components/NewArrivalsSection";
 import DirectionSection from "@/components/DirectionSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FullScreenCarousel from "@/components/FullScreenCarousel";
@@ -128,6 +129,7 @@ const Index = () => {
           <StorySection />
           <NewArrivalsSection />
           <TestimonialsSection />
+          <AboutSection />
           <ContactSection />
         </main>
         <Footer />

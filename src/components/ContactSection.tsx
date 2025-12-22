@@ -5,11 +5,63 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <img
-          src="/lovable-uploads/show.png"            // 放到 public/images/contact.jpg
-          alt="Support Institution"
-          className="w-full max-w-4xl mx-auto"
-        />
+        <div className="flex flex-wrap justify-center gap-6">
+          <img
+            src="/lovable-uploads/logo1.png"
+            alt="Partner logo 1"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo2.png"
+            alt="Partner logo 2"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo3.png"
+            alt="Partner logo 3"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo4.png"
+            alt="Partner logo 4"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo5.png"
+            alt="Partner logo 5"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo6.png"
+            alt="Partner logo 6"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo7.png"
+            alt="Partner logo 7"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo8.png"
+            alt="Partner logo 8"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo9.png"
+            alt="Partner logo 9"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo10.png"
+            alt="Partner logo 10"
+            className="h-20 object-contain"
+          />
+          <img
+            src="/lovable-uploads/logo11.png"
+            alt="Partner logo 11"
+            className="h-20 object-contain"
+          />
+        </div>
       </div>
     </section>
   );
