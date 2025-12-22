@@ -1,67 +1,47 @@
-import { Clock, Heart, Medal, Users } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight} from "lucide-react";
+import { useState } from "react";
+import JoinUsModal from "./JoinUsModal";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-32 bg-gradient-to-b from-black to-zinc-900">
+    <section
+      id="about"
+      className="py-12 md:py-16 lg:py-20 bg-black border-t border-white/5"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight animate-fade-in">
-            Pioneering the Future of Recovery Wellness
-          </h2>
-          <p className="text-xl text-white/80 leading-relaxed animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            Since our founding, REST RECOVERY has been at the forefront of recovery science, 
-            helping thousands achieve optimal wellness through cutting-edge therapies and products.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Left: Text */}
+          <div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+              About Super Naari
+            </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-32 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="bg-gradient-to-br from-zinc-900/50 to-black/50 border border-white/10 p-8 rounded-2xl backdrop-blur-md text-center transform hover:-translate-y-2 transition-all duration-300 hover:border-white/20"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
-                <feature.icon size={28} className="text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4 text-white tracking-tight">{feature.title}</h3>
-              <p className="text-white/70 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
-        </div>
+            <div className="h-1 w-24 bg-yellow-500 mb-8" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-          <div className="space-y-6">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
-              Our Story
-            </h3>
-            <div className="space-y-6 text-lg text-white/80 leading-relaxed">
-              <p>
-                At Rest Recovery, we believe that true wellness begins with intentional restoration. 
-                Our boutique wellness facilities are designed to help you recover, heal, and optimize 
-                your body and mind using science-backed, high-performance therapies.
-              </p>
-              <p>
-                We combine the latest in recovery technology—like cold plunges, infrared saunas, 
-                hyperbaric chambers, float therapy, red light therapy, compression, PEMF, and salt 
-                rooms—into a seamless, rejuvenating experience.
-              </p>
-              <p>
-                Founded on the idea that recovery should be accessible, effective, and luxurious, 
-                each of our locations is built with care, outfitted with industry-leading equipment, 
-                and supported by knowledgeable staff who guide you through your wellness journey.
-              </p>
-              <p className="font-medium text-white italic">
-                Welcome to the future of feeling good.
-              </p>
-            </div>
+            <p className="text-white/80 text-base md:text-lg leading-relaxed">
+              Super Naari is a transformative period-equity initiative committed to closing the
+              gender-health gap by championing menstrual and reproductive wellbeing. Through
+              education, equitable access, and community-centred solutions, Super Naari empowers
+              girls &amp; women, gender-diverse menstruators, and those who need it most—creating
+              opportunities, restoring dignity, and advancing gender equality. It builds an
+              inclusive ecosystem that empowers individuals, sustains communities, and fosters a
+              healthier, fairer world for all.
+            </p>
           </div>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-white/10 to-transparent rounded-2xl blur-lg"></div>
-            <div className="relative rounded-2xl overflow-hidden border border-white/10">
-              <img 
-                alt="REST RECOVERY Logo" 
-                className="w-full h-auto transform hover:scale-105 transition-transform duration-700" 
-                src="/lovable-uploads/b75b628b-2cba-4748-8f80-792a5ae8ee1d.png" 
+
+          {/* Right: Image */}
+          <div className="w-full">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <img
+                src="/lovable-uploads/naari.jpg"
+                alt="Super Naari"
+                className="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-[1.03]"
+                loading="lazy"
+                draggable={false}
               />
             </div>
           </div>
@@ -70,23 +50,5 @@ const AboutSection = () => {
     </section>
   );
 };
-
-const features = [{
-  icon: Medal,
-  title: "Premium Quality",
-  description: "Industry-leading recovery equipment and protocols backed by science."
-}, {
-  icon: Users,
-  title: "Expert Support",
-  description: "Dedicated team of wellness professionals to guide your journey."
-}, {
-  icon: Heart,
-  title: "Holistic Approach",
-  description: "Comprehensive recovery solutions addressing mind and body."
-}, {
-  icon: Clock,
-  title: "Efficient Results",
-  description: "Accelerate recovery and optimize performance in less time."
-}];
 
 export default AboutSection;
