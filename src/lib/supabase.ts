@@ -6,7 +6,8 @@ const supabaseUrl = (import.meta.env.VITE_SUPABASE_URL || '').trim()
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY'
 
 // Create Supabase client
-export const supabase = createClient(supabaseUrl, supabaseKey)
+// export const supabase = createClient(supabaseUrl, supabaseKey)
+export const supabase = null
 
 // Database table type definition
 export interface NewsletterSubscriber {

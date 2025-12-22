@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FaImdb } from "react-icons/fa";
 import { useState } from "react";
@@ -89,18 +89,18 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-bold mb-6 text-white tracking-tight">Super Naari</h2>
             <p className="text-white/70 mb-6">
-              Connect With us on
+              Connect With Us On
             </p>
             <div className="flex space-x-4">
               <div className="flex space-x-4">
-                <a href="https://www.facebook.com/saroni.roy" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Facebook">
+                <a href="https://www.facebook.com/saroniroyfoundationindiaausgoodwillambassador/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Facebook">
                   <Facebook size={20} />
                 </a>          
-                <a href="https://www.instagram.com/saroroy/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
+                <a href="https://www.instagram.com/saroniroyfoundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
                   <Instagram size={20} />     
                 </a>     
-                <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Twitter">
-                  <Twitter size={20} />  
+                <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X (Twitter)">
+                  <X size={20} />  
                 </a>    
                 <a href="https://www.linkedin.com/in/saroniroy/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                   <Linkedin size={20} />
