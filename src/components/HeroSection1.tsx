@@ -49,8 +49,7 @@ const HeroSection = () => {
                 text-lg md:text-xl lg:text-2xl
                 text-gray-100/90
                 leading-snug">
-          "Building a digital ecosystem for menstrual health, bridging ancient
-          wisdom with modern healthcare"
+          A global multicultural community-centered digital ecosystem, bridging the gender-health gap through menstrual & reproductive wellbeing
         </p>
           
         {/* Buttons */}
