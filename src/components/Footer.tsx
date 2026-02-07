@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin,  Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6"
 import { FaImdb } from "react-icons/fa";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -100,7 +101,7 @@ const Footer = () => {
                   <Instagram size={20} />     
                 </a>     
                 <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X">
-                  <X size={20} />  
+                  <FaXTwitter size={20} />  
                 </a>    
                 <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                   <Linkedin size={20} />

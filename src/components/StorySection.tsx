@@ -18,7 +18,7 @@ const StorySection = () => {
               </h2>
               {/* Main Paragraph */}
               <p className="text-xl text-white/70 leading-relaxed">
-                An inclusive, accessible, and holistic digital ecosystem platform-a one-stop solution to democratize menstrual and reproductive health.
+                Super Naari is a transformative period-equity initiative committed to closing the gender-health gap by championing menstrual and reproductive wellbeing. Through education, equitable access, and community-centred solutions, Super Naari empowers girls & women, gender-diverse menstruators, and those who need it most—creating opportunities, restoring dignity, and advancing gender equality. It builds an inclusive ecosystem that empowers individuals, sustains communities, and fosters a healthier, fairer world for all.
               </p>
             </div>
     
@@ -78,6 +78,10 @@ const StorySection = () => {
           {/* down line */}
           <p className="mt-1 text-xl md:text-3xl font-semibold leading-tight text-yellow-400">
             Cost, Pain, Stigma, Accessibility
+          </p>
+          <img></img>
+          <p className="text-white/80 text-base md:text-lg leading-relaxed">
+            "As an actor, peace activist, and responsible global citizen, I believe in the transformative role of women in peacebuilding and conflict resolution. Our project Super Naari is our call to honour women as changemakers—raising awareness about gender health inequality, amplifying voices often silenced, and reimagining inclusive narratives of justice. By blending creativity with advocacy, we aim to inspire collective action toward a future where gender equality and peace are not ideals, but realities." - <b><span className="text-blue-600 underline hover:text-blue-800"><a href="https://www.linkedin.com/in/saroniroy/?lipi=urn%3Ali%3Apage%3Aprofile_common_profile_index%3B17b709ad-0743-4a7c-8a96-0323694b3969">Saroni Roy</a></span>, Founder & CEO, Saroni Roy Foundation (SRf)</b>
           </p>
         </div>
       </div>

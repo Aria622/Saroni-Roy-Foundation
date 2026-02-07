@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { FaImdb } from "react-icons/fa";
+import { FaXTwitter } from 'react-icons/fa6';
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,7 +18,7 @@ import {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] =
-    useState<'home' | 'vision' | 'platform' | 'news' | 'involve'>('home');
+    useState<'home' | 'vision' | 'platform' | 'news' | 'involve' | 'about' >('home');
 
   const scrollToSection = (sectionId: string) => {
     try {
@@ -127,6 +129,20 @@ const Navbar = () => {
           >
             Get Involved
           </a>
+          <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+              setActive('about');
+            }}
+            className={`font-semibold text-lg lg:text-xl transition-colors relative
+              ${active === 'about'
+                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                : 'text-white/80 hover:text-white'}`}
+          >
+            About
+          </a>
         </nav>
 
         {/* Desktop Subscribe Button */}
@@ -149,7 +165,7 @@ const Navbar = () => {
             <Instagram size={28} />     
           </a>     
           <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X">
-                        <X size={28} />  
+                        <FaXTwitter size={28} />  
           </a>    
           <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                         <Linkedin size={28} />
