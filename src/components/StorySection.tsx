@@ -81,7 +81,7 @@ const StorySection = () => {
           </p>
           <img></img>
           <p className="text-white/80 text-base md:text-lg leading-relaxed">
-            "As an actor, peace activist, and responsible global citizen, I believe in the transformative role of women in peacebuilding and conflict resolution. Our project Super Naari is our call to honour women as changemakers—raising awareness about gender health inequality, amplifying voices often silenced, and reimagining inclusive narratives of justice. By blending creativity with advocacy, we aim to inspire collective action toward a future where gender equality and peace are not ideals, but realities." - <span className="text-blue-600 underline hover:text-blue-800"><a href="https://www.linkedin.com/in/saroniroy/?lipi=urn%3Ali%3Apage%3Aprofile_common_profile_index%3B17b709ad-0743-4a7c-8a96-0323694b3969">Saroni Roy</a></span>, Founder & CEO, Saroni Roy Foundation (SRf)
+            "As an actor, peace activist, and responsible global citizen, I believe in the transformative role of women in peacebuilding and conflict resolution. Our project Super Naari is our call to honour women as changemakers—raising awareness about gender health inequality, amplifying voices often silenced, and reimagining inclusive narratives of justice. By blending creativity with advocacy, we aim to inspire collective action toward a future where gender equality and peace are not ideals, but realities." - <b><span className="text-blue-600 underline hover:text-blue-800"><a href="https://www.linkedin.com/in/saroniroy/?lipi=urn%3Ali%3Apage%3Aprofile_common_profile_index%3B17b709ad-0743-4a7c-8a96-0323694b3969">Saroni Roy</a></span>, Founder & CEO, Saroni Roy Foundation (SRf)</b>
           </p>
         </div>
       </div>
