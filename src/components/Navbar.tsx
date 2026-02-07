@@ -16,7 +16,7 @@ import {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] =
-    useState<'home' | 'vision' | 'platform' | 'news' | 'involve'>('home');
+    useState<'home' | 'vision' | 'platform' | 'news' | 'involve' | 'about' >('home');
 
   const scrollToSection = (sectionId: string) => {
     try {
@@ -126,6 +126,20 @@ const Navbar = () => {
                 : 'text-white/80 hover:text-white'}`}
           >
             Get Involved
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+              setActive('about');
+            }}
+            className={`font-semibold text-lg lg:text-xl transition-colors relative
+              ${active === 'about'
+                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                : 'text-white/80 hover:text-white'}`}
+          >
+            About
           </a>
         </nav>
 

@@ -18,7 +18,7 @@ const DirectionSection = () => {
           </h2>
           {/* Main Paragraph */}
           <p className="text-xl text-white/70 leading-relaxed">
-            To establish Super Naari as an inclusive, accessible digital ecosystem—a one-stop solution for menstrual and reproductive health.
+            To empower the Super Naari platform as an inclusive, culturally-intelligent, accessible digital ecosystem - a one-stop-solution, democratising and de-stigmatising menstrual and reproductive health
           </p>
           {/* Yellow Highlight */}
           <blockquote className="mt-6 mx-auto max-w-3xl">
