@@ -99,11 +99,20 @@ const Footer = () => {
                 <a href="https://www.instagram.com/saroniroyfoundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
                   <Instagram size={20} />     
                 </a>     
-                <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X (Twitter)">
+                <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X">
                   <X size={20} />  
                 </a>    
-                <a href="https://www.linkedin.com/in/saroniroy/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                   <Linkedin size={20} />
+                </a>
+                <a 
+                  href="https://www.youtube.com/@SaroniRoyFoundation" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-white transition-colors" 
+                  aria-label="YouTube"
+                >
+                  <Youtube size={20} />
                 </a>
                 <a 
                   href="https://imdb.me/SaroniRoy" 

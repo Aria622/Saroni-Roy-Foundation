@@ -15,6 +15,7 @@ import Accessibility from "./pages/Accessibility";
 import CookiePolicy from "./pages/CookiePolicy";
 import Redirect from "./pages/Redirect";
 import { VideoPage } from "./pages/VideoPage";
+import ImpactStories from "./pages/ImpactStories";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/video" element={<VideoPage />} />
+          <Route path="/impact-stories" element={<ImpactStories />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

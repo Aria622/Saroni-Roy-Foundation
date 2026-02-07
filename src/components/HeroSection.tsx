@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, Play, MapPin, Users, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [statsCounter, setStatsCounter] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -86,12 +88,12 @@ const HeroSection = () => {
               <Button
               size="lg"
               variant="ghost"
-              onClick={() => scrollToSection('intro')}
+              onClick={() => navigate('/impact-stories')}
               className="px-8 py-4 text-lg rounded-xl
                text-yellow-400 border border-yellow-400/70
                hover:bg-yellow-400/10 hover:text-yellow-300"
               >
-                Watch Introduction
+                Impact Stories
                 <Play className="ml-2 w-5 h-5" />
               </Button>
               </div>
@@ -102,7 +104,7 @@ const HeroSection = () => {
                 size="lg"
                 className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300
                text-black font-semibold px-8 py-4 text-lg group"
-               onClick={() => scrollToSection('/')}
+               onClick={() => scrollToSection('contact')}
                >
                 Donate
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />

@@ -18,13 +18,12 @@ const DirectionSection = () => {
           </h2>
           {/* Main Paragraph */}
           <p className="text-xl text-white/70 leading-relaxed">
-            To establish Super Naari as an inclusive, accessible digital ecosystem-a one-stop solution  fo menstrual and reproductive health.
+            To establish Super Naari as an inclusive, accessible digital ecosystem—a one-stop solution for menstrual and reproductive health.
           </p>
           {/* Yellow Highlight */}
           <blockquote className="mt-6 mx-auto max-w-3xl">
             <div className="rounded-2xl bg-[#8c8c8c]/30 p-1">
-              <div className="rounded-xl border border-[#c9a300] bg-black/60 px-6 py-5 text-
-              center">
+              <div className="rounded-xl border border-[#c9a300] bg-black/60 px-6 py-5 text-center">
                 <p className="text-lg md:text-2xl text-white/70 leading-relaxed">
                   In the ‘Women, Peace & Security’ agenda, ‘period poverty’ is a global peace economics crisis.
                 </p>

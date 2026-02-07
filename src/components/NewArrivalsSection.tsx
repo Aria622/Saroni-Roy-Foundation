@@ -82,7 +82,7 @@ const ProductCard = ({ product, index }: { product: any; index: number }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
         <img 
           src={product.image}
-          alt={product.name}
+          alt={product.description}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
       </div>
@@ -102,22 +102,24 @@ const ProductCard = ({ product, index }: { product: any; index: number }) => {
   );
 };
 
+const WAGEC_DESCRIPTION = "Menstrual Hygiene Management Donation Drive for Women & Girls Emergency Centre (WAGEC) Sydney.";
+
 const newArrivals = [
   {
-    name: "K2 Contrast Hot/Cold Plunge",
-    description: "Menstrual Hygiene Management Donation Drive for Women & Girls Emergency Centre (WAGEC) Sydney.",
+    name: "WAGEC Donation Drive",
+    description: WAGEC_DESCRIPTION,
     image: "/lovable-uploads/photo1.jpg",
     icon: <Thermometer className="w-5 h-5 text-white" />
   },
   {
-    name: "The AirVault (2.0 Hyperbaric Chamber)",
-    description: "Menstrual Hygiene Management Donation Drive for Women & Girls Emergency Centre (WAGEC) Sydney.",
+    name: "WAGEC Donation Drive",
+    description: WAGEC_DESCRIPTION,
     image: "/lovable-uploads/photo2.jpg",
     icon: <Cylinder className="w-5 h-5 text-white" />
   },
   {
-    name: "HydroChill",
-    description: "Menstrual Hygiene Management Donation Drive for Women & Girls Emergency Centre (WAGEC) Sydney.",
+    name: "WAGEC Donation Drive",
+    description: WAGEC_DESCRIPTION,
     image: "/lovable-uploads/photo3.jpg", 
     icon: <Bath className="w-5 h-5 text-white" />
   }

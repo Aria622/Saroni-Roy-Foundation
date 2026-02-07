@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
             Collaborate
           </h2>
           <p className="text-2xl text-white/80">
-            Let us make a better world
+            Let&apos;s make a better world together
           </p>
         </div>
 

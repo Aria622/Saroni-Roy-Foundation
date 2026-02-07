@@ -30,6 +30,7 @@ const HeroSection = () => {
     <>
       <section id="home" className="flex flex-col items-center text-center text-center px-6 pt-12 pb-4 min-h-screen">
         <div className="p-2 rounded-xl">
+          {/* Replace midlogo.png with high-resolution Super Naari logo in public/lovable-uploads/ when available */}
           <img src="/lovable-uploads/midlogo.png" alt="Super Naari"
             className="mx-auto w-auto
                h-[120px] sm:h-[150px] md:h-[170px]
@@ -66,13 +67,13 @@ const HeroSection = () => {
               Explore Platform
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button onClick={() => navigate('/video')} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
+            <Button onClick={() => navigate('/impact-stories')} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
             rounded-md lg:rounded-lg xl:rounded-xl shadow-md
             px-6 py-6 text-base
             md:px-6 md:py-6 md:text-[17px]
             lg:px-8 lg:py-8 lg:text-xl
             xl:px-10 xl:py-9 xl:text-2xl">
-              Watch Introduction
+              Impact Stories
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
