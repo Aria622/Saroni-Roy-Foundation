@@ -1,6 +1,5 @@
 # Super Naari updates – verification checklist
 
-Use this to confirm all requested changes are in place.
 
 ## Content & copy
 
