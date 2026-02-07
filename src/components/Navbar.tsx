@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { FaImdb } from "react-icons/fa";
+import { FaXTwitter } from 'react-icons/fa6';
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -163,7 +165,7 @@ const Navbar = () => {
             <Instagram size={28} />     
           </a>     
           <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X">
-                        <X size={28} />  
+                        <FaXTwitter size={28} />  
           </a>    
           <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                         <Linkedin size={28} />
