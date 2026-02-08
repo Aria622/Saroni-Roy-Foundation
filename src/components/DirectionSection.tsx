@@ -95,13 +95,14 @@ const DirectionSection = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-4 relative z-10">
+      
+      <div className="container mx-auto px-4 relative z-10 mt-10">
         <div className="text-center max-w-4xl mx-auto mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
             Our Purpose 
           </h2>
           {/* Main Paragraph */}
-          <ul className="mt-6 space-y-3 text-gray-200 text-lg max-w-xl">
+          <ul className="mt-6 space-y-3 text-gray-200 text-2xl max-w-5xl text-left">
             {goals.map((item, index) => (
               <li key={index} className="flex items-start">
                 <span className="mr-3 text-yellow-400">•</span>
@@ -109,15 +110,15 @@ const DirectionSection = () => {
               </li>
             ))}
           </ul>
-          <p className="text-xl text-white/70 leading-relaxed">
-            To empower the Super Naari platform as an inclusive, culturally-intelligent, accessible digital ecosystem - a one-stop-solution, democratising and de-stigmatising menstrual and reproductive health
-          </p>
+          {/* <p className="text-lg md:text-2xl text-white/70 leading-relaxed">
+            Through a scalable, culturally inclusive, community-first ecosystem, Super Naari works to empower individuals, sustain communities, and foster a healthier, safer, and more equitable world.
+          </p> */}
           {/* Yellow Highlight */}
-          <blockquote className="mt-6 mx-auto max-w-3xl">
+          <blockquote className="mt-10 mx-auto max-w-3xl">
             <div className="rounded-2xl bg-[#8c8c8c]/30 p-1">
               <div className="rounded-xl border border-[#c9a300] bg-black/60 px-6 py-5 text-center">
                 <p className="text-lg md:text-2xl text-white/70 leading-relaxed">
-                  In the ‘Women, Peace & Security’ agenda, ‘period poverty’ is a global peace economics crisis.
+                  Through a scalable, culturally inclusive, community-first ecosystem, Super Naari works to empower individuals, sustain communities, and foster a healthier, safer, and more equitable world.
                 </p>
               </div>
             </div>
