@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const DirectionSection = () => {
+  const goals = [
+  "Advancing period equity",
+  "Improving menstrual and reproductive health literacy",
+  "Enabling equitable access to products and essential resources",
+  "Supporting girls, women, gender-diverse menstruators, and individuals with the greatest need",
+  "Championing their rights, dignity, and full participation in society"
+  ];
   return (
     <section id="vision" className="py-12 md:py-20 lg:py-24 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
       {/* Background Elements */}
@@ -88,6 +95,37 @@ const DirectionSection = () => {
           </div>
         </div>
       </div>
+      
+      <div className="container mx-auto px-4 relative z-10 mt-10">
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
+            Our Purpose 
+          </h2>
+          {/* Main Paragraph */}
+          <ul className="mt-6 space-y-3 text-gray-200 text-2xl max-w-5xl text-left">
+            {goals.map((item, index) => (
+              <li key={index} className="flex items-start">
+                <span className="mr-3 text-yellow-400">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {/* <p className="text-lg md:text-2xl text-white/70 leading-relaxed">
+            Through a scalable, culturally inclusive, community-first ecosystem, Super Naari works to empower individuals, sustain communities, and foster a healthier, safer, and more equitable world.
+          </p> */}
+          {/* Yellow Highlight */}
+          <blockquote className="mt-10 mx-auto max-w-3xl">
+            <div className="rounded-2xl bg-[#8c8c8c]/30 p-1">
+              <div className="rounded-xl border border-[#c9a300] bg-black/60 px-6 py-5 text-center">
+                <p className="text-lg md:text-2xl text-white/70 leading-relaxed">
+                  Through a scalable, culturally inclusive, community-first ecosystem, Super Naari works to empower individuals, sustain communities, and foster a healthier, safer, and more equitable world.
+                </p>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+      
     </section>
   );
 };
