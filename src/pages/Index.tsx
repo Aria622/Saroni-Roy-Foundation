@@ -46,9 +46,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen" >
       {/* full screen carousel background */}
-      <div className="fixed inset-0 z-0">
+      <div className="absolute inset-0 z-0">
         <FullScreenCarousel />
       </div>
       
