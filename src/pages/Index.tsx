@@ -46,7 +46,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen" >
+    <div className="relative min-h-screen bg-black" >
       {/* full screen carousel background */}
       <div className="absolute inset-0 z-0">
         <FullScreenCarousel />
@@ -123,10 +123,10 @@ const Index = () => {
       
       <div className="relative z-10 min-h-screen flex flex-col justify-between">
         <Navbar />
-        <main>
+        <main >
           <HeroSection />
           {/* Key impact stat – Tata Trusts–inspired focus on scale of the issue */}
-          <section className="relative z-10 py-6 md:py-8 bg-black/80 border-b border-white/5">
+          <section className="relative z-10 py-6 md:py-8 bg-black/80 border-b border-white/5 -mt-48">
             <div className="container mx-auto px-4 text-center">
               <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
                 <span className="text-yellow-400 font-semibold">500 million women</span> globally lack adequate access to menstrual products and facilities. Super Naari is scaling community-led solutions for lasting impact.
