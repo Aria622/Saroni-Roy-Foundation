@@ -35,7 +35,7 @@ const ContactSection = () => {
             className="h-20 object-contain"
           />
           <img
-            src="/lovable-uploads/logo6.png"
+            src="/lovable-uploads/logo6.1.png"
             alt="Partner logo 6"
             className="h-20 object-contain"
           />
