@@ -30,11 +30,11 @@ const HeroSection = () => {
     <>
       <section id="home" className="flex flex-col items-center text-center px-6 pt-12 pb-4 h-screen">
         <div className="p-2 rounded-xl">
-          {/* Replace midlogo.png with high-resolution Super Naari logo in public/lovable-uploads/ when available */}
-          <img src="/lovable-uploads/midlogo.png" alt="Super Naari"
+          
+          <img src="/lovable-uploads/Black-Gold1.png" alt="Super Naari"
             className="mx-auto w-auto
                h-[120px] sm:h-[150px] md:h-[170px]
-               lg:h-[120px] xl:h-[130px] 2xl:h-[140px]
+               lg:h-[120px] xl:h-[130px] 2xl:h-[140px] scale-110
                object-contain" />
         </div>
 
