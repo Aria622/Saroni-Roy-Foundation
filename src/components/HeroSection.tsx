@@ -59,9 +59,9 @@ const HeroSection = () => {
                 <img
                   src="/lovable-uploads/Black-Gold.png"
                   alt="Super Naari Logo"
-                  className="block h-[200px] md:h-[260px] lg:h-[320px] w-auto"
+                  className="block h-[280px] md:h-[360px] lg:h-[420px] w-auto"
                 />
-                <span className="block mt-1 text-xl md:text-5xl lg:text-6xl font-semibold leading-snug bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
+                <span className="block mt-1 text-xl md:text-5xl lg:text-6xl font-semibold leading-snug bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap">
                   A Period Equity Initiative
                 </span>
               </h1>

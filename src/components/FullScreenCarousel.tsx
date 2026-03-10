@@ -53,11 +53,11 @@ const FullScreenCarousel: React.FC = () => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="w-full h-full flex-shrink-0 flex items-center justify-center p-8">
+          <div key={index} className="w-full h-full flex-shrink-0">
             <img
               src={image.src}
               alt={image.alt}
-              className="max-w-[80%] max-h-[80%] w-auto h-auto object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
