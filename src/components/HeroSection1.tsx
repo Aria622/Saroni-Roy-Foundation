@@ -28,13 +28,13 @@ const HeroSection = () => {
 
   return (
     <>
-      <section id="home" className="flex flex-col items-center text-center text-center px-6 pt-12 pb-4 min-h-screen">
+      <section id="home" className="flex flex-col items-center text-center px-6 pt-12 pb-4 h-screen">
         <div className="p-2 rounded-xl">
-          {/* Replace midlogo.png with high-resolution Super Naari logo in public/lovable-uploads/ when available */}
-          <img src="/lovable-uploads/midlogo.png" alt="Super Naari"
+          
+          <img src="/lovable-uploads/Black-Gold1.png" alt="Super Naari"
             className="mx-auto w-auto
                h-[120px] sm:h-[150px] md:h-[170px]
-               lg:h-[120px] xl:h-[130px] 2xl:h-[140px]
+               lg:h-[120px] xl:h-[130px] 2xl:h-[140px] scale-110
                object-contain" />
         </div>
 
@@ -49,12 +49,11 @@ const HeroSection = () => {
                 text-lg md:text-xl lg:text-2xl
                 text-gray-100/90
                 leading-snug">
-          "Building a digital ecosystem for menstrual health, bridging ancient
-          wisdom with modern healthcare"
+          A global multicultural community-centered digital ecosystem, bridging the gender-health gap through menstrual & reproductive wellbeing
         </p>
           
         {/* Buttons */}
-        <div className="mt-auto w-full px-4
+        <div className="pt-48 w-full px-4
                 pb-8 md:pb-10 lg:pb-16
                 flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center lg:justify-between items-center">
           <div className="flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center">
