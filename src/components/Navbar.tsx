@@ -1,11 +1,18 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
-import { NavLink, Link } from "react-router-dom";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+} from "lucide-react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { FaImdb } from "react-icons/fa";
-import { FaXTwitter } from 'react-icons/fa6';
-
+import { FaXTwitter } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,26 +20,50 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import ImpactStories from "@/pages/ImpactStories";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [active, setActive] =
-    useState<'home' | 'vision' | 'platform' | 'news' | 'involve' | 'about' >('home');
+  const [active, setActive] = useState<
+    "home" | "vision" | "platform" | "news" | "involve" | "about"
+  >("home");
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const sectionId = sessionStorage.getItem("scrollTo");
+    if (sectionId) {
+      const section = document.getElementById(sectionId);
+      setActive(sectionId)
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        sessionStorage.removeItem("scrollTo");
+        setIsMenuOpen(false);
+      }
+    } //scroll to section stored in sessionStorage (if any) after finish navigating
+  }, [location.pathname]); //-> when path is changed run these lines of code
   const scrollToSection = (sectionId: string) => {
     try {
       const section = document.getElementById(sectionId);
+      //if not root page, then navigate to it
+      if (location.pathname != "/") {
+        navigate(`/`);
+        sessionStorage.setItem("scrollTo", sectionId);
+        //storing sectionId selected to scroll to that section after navigation is complete -> useEffect
+      }
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: "smooth" });
         setIsMenuOpen(false);
       }
     } catch (error) {
+      console.log(error);
       console.error(`Error scrolling to ${sectionId}:`, error);
       // Fallback for cross-origin issues
       const element = document.getElementById(sectionId);
       if (element) {
-        const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({top: yOffset, behavior: 'smooth'});
+        const yOffset =
+          element.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: yOffset, behavior: "smooth" });
         setIsMenuOpen(false);
       }
     }
@@ -44,27 +75,29 @@ const Navbar = () => {
         <div className="flex items-center space-x-3">
           {/* Updated logo - clickable to go home */}
           <Link to="/">
-            <img 
-              src="/lovable-uploads/SRFlogo.png" 
-              alt="SRF Logo" 
+            <img
+              src="/lovable-uploads/SRFlogo.png"
+              alt="SRF Logo"
               className="h-[90px] md:h-[90px] w-auto object-contain hover:opacity-80 transition-opacity cursor-pointer"
             />
           </Link>
         </div>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('home');
-              setActive('home');
+              setActive("home");
+              scrollToSection("home");
             }}
             className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${active === 'home'
-                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                : 'text-white/80 hover:text-white'}`}
+              ${
+                active === "home"
+                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                  : "text-white/80 hover:text-white"
+              }`}
           >
             Home
           </a>
@@ -73,13 +106,15 @@ const Navbar = () => {
             href="#vision"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('vision');
-              setActive('vision');
+              setActive("vision");
+              scrollToSection("vision");
             }}
             className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${active === 'vision'
-                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                : 'text-white/80 hover:text-white'}`}
+              ${
+                active === "vision"
+                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                  : "text-white/80 hover:text-white"
+              }`}
           >
             Vision
           </a>
@@ -88,13 +123,15 @@ const Navbar = () => {
             href="#platform"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('platform');
-              setActive('platform');
+              setActive("platform");
+              scrollToSection("platform");
             }}
             className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${active === 'platform'
-                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                : 'text-white/80 hover:text-white'}`}
+              ${
+                active === "platform"
+                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                  : "text-white/80 hover:text-white"
+              }`}
           >
             Platform
           </a>
@@ -103,28 +140,32 @@ const Navbar = () => {
             href="#news"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('news');
-              setActive('news');
+              setActive("news");
+              scrollToSection("news");
             }}
             className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${active === 'news'
-                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                : 'text-white/80 hover:text-white'}`}
+              ${
+                active === "news"
+                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                  : "text-white/80 hover:text-white"
+              }`}
           >
             Projects
           </a>
-          
+
           <a
             href="#involve"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('involve');
-              setActive('involve');
+              setActive("involve");
+              scrollToSection("involve");
             }}
             className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${active === 'involve'
-                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                : 'text-white/80 hover:text-white'}`}
+              ${
+                active === "involve"
+                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                  : "text-white/80 hover:text-white"
+              }`}
           >
             Get Involved
           </a>
@@ -132,13 +173,15 @@ const Navbar = () => {
             href="#about"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('about');
-              setActive('about');
+              setActive("about");
+              scrollToSection("about");
             }}
             className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${active === 'about'
-                ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                : 'text-white/80 hover:text-white'}`}
+              ${
+                active === "about"
+                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                  : "text-white/80 hover:text-white"
+              }`}
           >
             About
           </a>
@@ -146,9 +189,14 @@ const Navbar = () => {
 
         {/* Desktop Subscribe Button */}
         <div className="hidden md:block">
-          <Button 
+          <Button
             type="button"
-            onClick={() => window.open("https://www.linkedin.com/company/saroni-roy-foundation/", "_blank")}
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/company/saroni-roy-foundation/",
+                "_blank",
+              )
+            }
             className="bg-[#c9a300] text-black hover:bg-white/90 text-lg lg:text-xl rounded-full px-6"
           >
             Subscribe
@@ -157,17 +205,41 @@ const Navbar = () => {
 
         {/* Social Media */}
         <div className="flex space-x-4">
-          <a href="https://www.facebook.com/saroniroyfoundationindiaausgoodwillambassador/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Facebook">
+          <a
+            href="https://www.facebook.com/saroniroyfoundationindiaausgoodwillambassador/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Facebook"
+          >
             <Facebook size={28} />
-          </a>          
-          <a href="https://www.instagram.com/saroniroyfoundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">   
-            <Instagram size={28} />     
-          </a>     
-          <a href="https://x.com/roysaroni" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="X">
-                        <FaXTwitter size={28} />  
-          </a>    
-          <a href="https://www.linkedin.com/company/saroni-roy-foundation/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
-                        <Linkedin size={28} />
+          </a>
+          <a
+            href="https://www.instagram.com/saroniroyfoundation/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram size={28} />
+          </a>
+          <a
+            href="https://x.com/roysaroni"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="X"
+          >
+            <FaXTwitter size={28} />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/saroni-roy-foundation/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={28} />
           </a>
           {/* <a 
             href="https://imdb.me/SaroniRoy" 
@@ -181,7 +253,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden p-2 text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
@@ -189,24 +261,24 @@ const Navbar = () => {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
           <div className="container mx-auto flex flex-col space-y-2 px-4">
-            <Link 
+            <Link
               to="/"
               className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
             >
               Home
             </Link>
-            <Link 
+            <Link
               to="/licensee"
               className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
             >
               Licensee
             </Link>
-            <Link 
+            <Link
               to="/shop"
               className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
             >
@@ -241,9 +313,9 @@ const Navbar = () => {
                 </div>
               </div>
             </div> */}
-            <Button 
+            <Button
               className="bg-white text-black hover:bg-white/90 rounded-full w-full mt-2 py-4 text-lg"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
             >
               Contact Now
             </Button>
