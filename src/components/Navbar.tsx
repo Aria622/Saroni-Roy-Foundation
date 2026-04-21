@@ -12,6 +12,8 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
+const VALID_SECTIONS = ["home", "vision", "platform", "news", "involve", "about"] as const;
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState<
@@ -24,7 +26,9 @@ const Navbar = () => {
     const sectionId = sessionStorage.getItem("scrollTo");
     if (sectionId) {
       const section = document.getElementById(sectionId);
-      setActive(sectionId)
+      if (VALID_SECTIONS.includes(sectionId as (typeof VALID_SECTIONS)[number])) {
+        setActive(sectionId as (typeof VALID_SECTIONS)[number]);
+      }
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
         sessionStorage.removeItem("scrollTo");
