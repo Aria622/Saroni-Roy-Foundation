@@ -28,13 +28,13 @@ const HeroSection = () => {
 
   return (
     <>
-      <section id="home" className="flex flex-col items-center text-center px-6 pt-12 pb-4 h-screen">
+      <section id="home" className="flex flex-col items-center text-center px-6 pt-12 pb-4 min-h-screen">
         <div className="p-2 rounded-xl">
           
           <img src="/lovable-uploads/Black-Gold1.png" alt="Super Naari"
             className="mx-auto w-auto
-               h-[120px] sm:h-[150px] md:h-[170px]
-               lg:h-[120px] xl:h-[130px] 2xl:h-[140px] scale-110
+               h-[220px] sm:h-[260px] md:h-[300px]
+               lg:h-[340px] xl:h-[380px] 2xl:h-[420px] scale-110
                object-contain" />
         </div>
 
@@ -45,7 +45,7 @@ const HeroSection = () => {
           A Period Equity Initiative
         </h3> */}
 
-        <p className="text-center max-w-xl md:max-w-2xl mt-1
+        <p className="w-full text-left max-w-5xl mt-1
                 text-lg md:text-xl lg:text-2xl
                 text-gray-100/90
                 leading-snug">
@@ -53,7 +53,7 @@ const HeroSection = () => {
         </p>
           
         {/* Buttons */}
-        <div className="pt-48 w-full px-4
+        <div className="pt-20 md:pt-24 lg:pt-28 w-full px-4
                 pb-8 md:pb-10 lg:pb-16
                 flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center lg:justify-between items-center">
           <div className="flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center">
