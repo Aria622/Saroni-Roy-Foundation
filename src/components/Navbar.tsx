@@ -1,18 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaImdb } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { useLocation } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,7 +11,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import ImpactStories from "@/pages/ImpactStories";
+
+const VALID_SECTIONS = ["home", "vision", "platform", "news", "involve", "about"] as const;
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +26,9 @@ const Navbar = () => {
     const sectionId = sessionStorage.getItem("scrollTo");
     if (sectionId) {
       const section = document.getElementById(sectionId);
-      setActive(sectionId)
+      if (VALID_SECTIONS.includes(sectionId as (typeof VALID_SECTIONS)[number])) {
+        setActive(sectionId as (typeof VALID_SECTIONS)[number]);
+      }
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
         sessionStorage.removeItem("scrollTo");
