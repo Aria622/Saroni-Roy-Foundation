@@ -38,6 +38,14 @@ const HeroSection = () => {
                object-contain" />
         </div>
 
+        <h1 className="sr-only">
+          Super Naari
+        </h1>
+
+        <p className="sr-only">
+          Super Naari (Supernaari) is a global initiative by Saroni Roy Foundation focused on menstrual health awareness, women's wellness, and period equity.
+        </p>
+
         {/* <h3 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold
                  text-yellow-400 leading-tight tracking-tight
                  drop-shadow-[0_2px_6px_rgba(0,0,0,.45)]
