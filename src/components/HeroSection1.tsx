@@ -53,7 +53,7 @@ const HeroSection = () => {
           A Period Equity Initiative
         </h3> */}
 
-        <p className="w-full text-left max-w-5xl mt-1
+        <p className="w-full text-center max-w-5xl mt-1
                 text-lg md:text-xl lg:text-2xl
                 text-gray-100/90
                 leading-snug">
