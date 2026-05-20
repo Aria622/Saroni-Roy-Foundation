@@ -19,7 +19,7 @@
 
 - [ ] **Twitter → X** – Navbar and Footer use X icon; Footer aria-label "X" (no "Twitter") (`Navbar.tsx`, `Footer.tsx`)
 - [ ] **Super Naari logo** – Comment in `HeroSection1.tsx`; replace `public/lovable-uploads/midlogo.png` with high-res when ready
-- [ ] **Awards and Associations** – Section heading + dark background; logo paths `logo1.png`–`logo11.png` (replace files from Drive) (`ContactSection.tsx`)
+- [ ] **Awards & Associations** – Section heading + dark background; logo paths `logo1.png`–`logo11.png` (replace files from Drive) (`ContactSection.tsx`)
 
 ## Footer & social
 
