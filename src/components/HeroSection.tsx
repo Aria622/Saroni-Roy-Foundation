@@ -70,6 +70,39 @@ const HeroSection = () => {
               </p>
             </div>
 
+            
+
+            {/* Social Proof Stats */}
+            {/* <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-yellow-400">20+</div>
+                <div className="text-sm text-white/70">Locations</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-yellow-400">15+</div>
+                <div className="text-sm text-white/70">States</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-yellow-400">98%</div>
+                <div className="text-sm text-white/70">Success Rate</div>
+              </div>
+            </div> */}
+          </div>
+
+          {/* Right Content - Logo & Features */}
+          {/* <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}> */}
+            {/* Enhanced Logo Display */}
+            <div className="relative group">
+              <div className="absolute -inset-8 bg-gradient-to-r from-yellow-500/20 to-white/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 backdrop-blur-sm bg-white/5 p-8 hover-scale">
+                <img 
+                  alt="girls" 
+                  className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700" 
+                  src="/lovable-uploads/girls.png" 
+                />
+              </div>
+            </div>
+
             {/* CTA Buttons */}
             <div className="flex flex-col gap-4">
               <div className="flex flex-col sm:flex-row gap-4">
@@ -123,37 +156,6 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Social Proof Stats */}
-            {/* <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">20+</div>
-                <div className="text-sm text-white/70">Locations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">15+</div>
-                <div className="text-sm text-white/70">States</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">98%</div>
-                <div className="text-sm text-white/70">Success Rate</div>
-              </div>
-            </div> */}
-          </div>
-
-          {/* Right Content - Logo & Features */}
-          {/* <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}> */}
-            {/* Enhanced Logo Display */}
-            <div className="relative group">
-              <div className="absolute -inset-8 bg-gradient-to-r from-yellow-500/20 to-white/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
-              <div className="relative rounded-3xl overflow-hidden border border-white/20 backdrop-blur-sm bg-white/5 p-8 hover-scale">
-                <img 
-                  alt="girls" 
-                  className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700" 
-                  src="/lovable-uploads/girls.png" 
-                />
-              </div>
-            </div>
-
             {/* Quick Features */}
             {/* <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-yellow-500/30 transition-colors hover-scale">
@@ -179,6 +181,8 @@ const HeroSection = () => {
             </div> */}
           {/* </div> */}
         </div>
+        {/* code goes here */}
+
       </div>
 
       {/* Scroll Indicator */}
