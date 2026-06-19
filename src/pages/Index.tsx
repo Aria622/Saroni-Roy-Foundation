@@ -1,7 +1,11 @@
 
 import { useState, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import { Button } from "@/components/ui/button";
 import HeroSection from "@/components/HeroSection1";
+import DonateModal from "@/components/DonateModal";
 import StorySection from "@/components/StorySection";
 import NewArrivalsSection from "@/components/NewArrivalsSection";
 import DirectionSection from "@/components/DirectionSection";
@@ -13,6 +17,8 @@ import FullScreenCarousel from "@/components/FullScreenCarousel";
 
 const Index = () => {
   const [showCarouselControls, setShowCarouselControls] = useState(true);
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -44,6 +50,13 @@ const Index = () => {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="relative min-h-screen bg-black" >
@@ -133,6 +146,20 @@ const Index = () => {
               </p>
             </div>
           </section>
+          <div className="pt-6 md:pt-8 lg:pt-10 w-full px-4 pb-8 md:pb-10 lg:pb-16 flex flex-col items-center gap-4 md:gap-5 lg:gap-6 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-between">
+            <Button className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold w-full sm:w-auto rounded-md lg:rounded-lg xl:rounded-xl shadow-md px-6 py-6 text-base md:px-6 md:py-6 md:text-[17px] lg:px-8 lg:py-8 lg:text-xl xl:px-10 xl:py-9 xl:text-2xl" onClick={() => scrollToSection('vision')}>
+              Explore Platform
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button onClick={() => navigate('/impact-stories')} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold w-full sm:w-auto rounded-md lg:rounded-lg xl:rounded-xl shadow-md px-6 py-6 text-base md:px-6 md:py-6 md:text-[17px] lg:px-8 lg:py-8 lg:text-xl xl:px-10 xl:py-9 xl:text-2xl">
+              Impact Stories
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button onClick={() => setIsDonateModalOpen(true)} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold w-full sm:w-auto rounded-md lg:rounded-lg xl:rounded-xl shadow-md px-6 py-6 text-base md:px-6 md:py-6 md:text-[17px] lg:px-8 lg:py-8 lg:text-xl xl:px-10 xl:py-9 xl:text-2xl">
+              Donate
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
           <DirectionSection />
           <StorySection />
           <AboutSection />
@@ -141,6 +168,10 @@ const Index = () => {
           <ContactSection />
         </main>
         <Footer />
+        <DonateModal 
+          isOpen={isDonateModalOpen} 
+          onClose={() => setIsDonateModalOpen(false)} 
+        />
       </div>
     </div>
   );
