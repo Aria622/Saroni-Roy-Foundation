@@ -59,9 +59,9 @@ const HeroSection = () => {
                 <img
                   src="/lovable-uploads/Black-Gold.png"
                   alt="Super Naari Logo"
-                  className="block h-[280px] md:h-[360px] lg:h-[420px] w-auto"
+                  className="block h-[220px] sm:h-[280px] md:h-[360px] lg:h-[420px] w-auto max-w-full"
                 />
-                <span className="block mt-1 text-xl md:text-5xl lg:text-6xl font-semibold leading-snug bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent whitespace-nowrap">
+                <span className="block mt-1 text-xl md:text-5xl lg:text-6xl font-semibold leading-snug bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent whitespace-normal">
                   A Period Equity Initiative
                 </span>
               </h1>
@@ -94,7 +94,7 @@ const HeroSection = () => {
             {/* Enhanced Logo Display */}
             <div className="relative group">
               <div className="absolute -inset-8 bg-gradient-to-r from-yellow-500/20 to-white/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
-              <div className="relative rounded-3xl overflow-hidden border border-white/20 backdrop-blur-sm bg-white/5 p-8 hover-scale">
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 backdrop-blur-sm bg-white/5 p-6 sm:p-8 hover-scale">
                 <img 
                   alt="girls" 
                   className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700" 
@@ -104,13 +104,12 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
               <div className="flex flex-col sm:flex-row gap-4">
               {/* Primary */}
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300
-               text-black font-semibold px-8 py-4 text-lg group"
+                className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black font-semibold w-full sm:w-auto px-8 py-4 text-lg group"
                onClick={() => scrollToSection('vision')}
                >
                 Explore Platform
@@ -122,9 +121,7 @@ const HeroSection = () => {
               size="lg"
               variant="ghost"
               onClick={() => navigate('/impact-stories')}
-              className="px-8 py-4 text-lg rounded-xl
-               text-yellow-400 border border-yellow-400/70
-               hover:bg-yellow-400/10 hover:text-yellow-300"
+              className="w-full sm:w-auto px-8 py-4 text-lg rounded-xl text-yellow-400 border border-yellow-400/70 hover:bg-yellow-400/10 hover:text-yellow-300"
               >
                 Impact Stories
                 <Play className="ml-2 w-5 h-5" />
@@ -135,8 +132,7 @@ const HeroSection = () => {
               {/* Donate button */}
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300
-               text-black font-semibold px-8 py-4 text-lg group"
+                className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black font-semibold w-full sm:w-auto px-8 py-4 text-lg group"
                onClick={() => scrollToSection('contact')}
                >
                 Donate
@@ -146,8 +142,7 @@ const HeroSection = () => {
               {/* Subscribe button */}
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300
-               text-black font-semibold px-8 py-4 text-lg group"
+                className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black font-semibold w-full sm:w-auto px-8 py-4 text-lg group"
                onClick={() => scrollToSection('/')}
                >
                 Download E-book

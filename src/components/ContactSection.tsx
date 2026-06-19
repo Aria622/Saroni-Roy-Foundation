@@ -2,68 +2,35 @@
 import { Mail, MapPin, Instagram } from "lucide-react";
 
 const ContactSection = () => {
+  const awardLogos = [
+    { src: "/lovable-uploads/logo1.png", alt: "Partner logo 1", className: "h-38 object-contain" },
+    { src: "/lovable-uploads/logo2.png", alt: "Partner logo 2", className: "h-20 object-contain" },
+    { src: "/lovable-uploads/logo3.png", alt: "Partner logo 3", className: "h-28 md:h-48 object-contain" },
+    { src: "/lovable-uploads/logo4.png", alt: "Partner logo 4", className: "h-20 object-contain" },
+    { src: "/lovable-uploads/logo5.png", alt: "Partner logo 5", className: "h-32 object-contain" },
+    { src: "/lovable-uploads/logo6.1.png", alt: "Partner logo 6", className: "h-20 object-contain" },
+    { src: "/lovable-uploads/logo7.png", alt: "Partner logo 7", className: "h-20 object-contain" },
+    { src: "/lovable-uploads/logo8.png", alt: "Partner logo 8", className: "h-20 object-contain" },
+    { src: "/lovable-uploads/logo9.png", alt: "Partner logo 9", className: "h-32 object-contain" },
+    { src: "/lovable-uploads/logo10.png", alt: "Partner logo 10", className: "h-20 object-contain" },
+    { src: "/lovable-uploads/logo11.png", alt: "Partner logo 11", className: "h-20 object-contain" },
+    {
+      src: "/lovable-uploads/forbes-australia-womens-logo.png",
+      alt: "Forbes Australia Women's logo",
+      className: "h-20 object-contain",
+    },
+  ];
+
   return (
     <section id="contact" className="py-16 md:py-gi20 bg-white border-t border-white/5">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 text-center mb-12 tracking-tight">
           Awards & Associations
         </h2>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-10">
-          <img
-            src="/lovable-uploads/logo1.png"
-            alt="Partner logo 1"
-            className="h-38 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo2.png"
-            alt="Partner logo 2"
-            className="h-20 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo3.png"
-            alt="Partner logo 3"
-            className="h-28 md:h-48 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo4.png"
-            alt="Partner logo 4"
-            className="h-20 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo5.png"
-            alt="Partner logo 5"
-            className="h-32 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo6.1.png"
-            alt="Partner logo 6"
-            className="h-20 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo7.png"
-            alt="Partner logo 7"
-            className="h-20 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo8.png"
-            alt="Partner logo 8"
-            className="h-20 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo9.png"
-            alt="Partner logo 9"
-            className="h-32 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo10.png"
-            alt="Partner logo 10"
-            className="h-20 object-contain"
-          />
-          <img
-            src="/lovable-uploads/logo11.png"
-            alt="Partner logo 11"
-            className="h-20 object-contain"
-          />
+        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-10 md:gap-y-8">
+          {awardLogos.map((logo) => (
+            <img key={logo.src} src={logo.src} alt={logo.alt} className={logo.className} />
+          ))}
         </div>
       </div>
     </section>
