@@ -90,7 +90,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Logo & Features */}
-          {/* <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}> */}
+          <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
             {/* Enhanced Logo Display */}
             <div className="relative group">
               <div className="absolute -inset-8 bg-gradient-to-r from-yellow-500/20 to-white/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
@@ -174,9 +174,8 @@ const HeroSection = () => {
                 <div className="text-xs text-white/70">Customer Satisfaction</div>
               </div>
             </div> */}
-          {/* </div> */}
+          </div>
         </div>
-        {/* code goes here */}
 
       </div>
 

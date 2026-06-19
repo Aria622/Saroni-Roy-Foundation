@@ -3,7 +3,7 @@ import { Mail, MapPin, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   const awardLogos = [
-    { src: "/lovable-uploads/logo1.png", alt: "Partner logo 1", className: "h-38 object-contain" },
+    { src: "/lovable-uploads/logo1.png", alt: "Partner logo 1", className: "h-[9.5rem] object-contain" },
     { src: "/lovable-uploads/logo2.png", alt: "Partner logo 2", className: "h-20 object-contain" },
     { src: "/lovable-uploads/logo3.png", alt: "Partner logo 3", className: "h-28 md:h-48 object-contain" },
     { src: "/lovable-uploads/logo4.png", alt: "Partner logo 4", className: "h-20 object-contain" },
@@ -22,7 +22,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-gi20 bg-white border-t border-white/5">
+    <section id="contact" className="py-16 md:py-20 bg-white border-t border-white/5">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 text-center mb-12 tracking-tight">
           Awards & Associations
