@@ -53,47 +53,12 @@ const HeroSection = () => {
           A Period Equity Initiative
         </h3> */}
 
-        <p className="w-full text-left max-w-5xl mt-1
+        <p className="w-full text-center max-w-5xl mt-1
                 text-lg md:text-xl lg:text-2xl
                 text-gray-100/90
                 leading-snug">
           A global multicultural community-centered digital ecosystem, bridging the gender-health gap through menstrual & reproductive wellbeing
         </p>
-          
-        {/* Buttons */}
-        <div className="pt-20 md:pt-24 lg:pt-28 w-full px-4
-                pb-8 md:pb-10 lg:pb-16
-                flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center lg:justify-between items-center">
-          <div className="flex flex-wrap gap-4 md:gap-5 lg:gap-6 justify-center">
-            <Button className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
-            rounded-md lg:rounded-lg xl:rounded-xl shadow-md
-            px-6 py-6 text-base
-            md:px-6 md:py-6 md:text-[17px]
-            lg:px-8 lg:py-8 lg:text-xl
-            xl:px-10 xl:py-9 xl:text-2xl" onClick={() => scrollToSection('vision')}>
-              Explore Platform
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button onClick={() => navigate('/impact-stories')} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
-            rounded-md lg:rounded-lg xl:rounded-xl shadow-md
-            px-6 py-6 text-base
-            md:px-6 md:py-6 md:text-[17px]
-            lg:px-8 lg:py-8 lg:text-xl
-            xl:px-10 xl:py-9 xl:text-2xl">
-              Impact Stories
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </div>
-          <Button onClick={() => setIsDonateModalOpen(true)} className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold
-            rounded-md lg:rounded-lg xl:rounded-xl shadow-md
-            px-6 py-6 text-base
-            md:px-6 md:py-6 md:text-[17px]
-            lg:px-8 lg:py-8 lg:text-xl
-            xl:px-10 xl:py-9 xl:text-2xl">
-            Donate
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </div>
       </section>
       
       {/* Donate Modal */}
