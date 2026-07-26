@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -13,12 +13,20 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const VALID_SECTIONS = ["home", "vision", "platform", "news", "involve", "about"] as const;
+type SectionId = (typeof VALID_SECTIONS)[number];
+
+const SECTION_NAV_ITEMS: ReadonlyArray<{ id: SectionId; label: string }> = [
+  { id: "home", label: "Home" },
+  { id: "vision", label: "Vision" },
+  { id: "platform", label: "Platform" },
+  { id: "news", label: "Projects" },
+  { id: "involve", label: "Get Involved" },
+  { id: "about", label: "About" },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [active, setActive] = useState<
-    "home" | "vision" | "platform" | "news" | "involve" | "about"
-  >("home");
+  const [active, setActive] = useState<SectionId>("home");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -26,8 +34,8 @@ const Navbar = () => {
     const sectionId = sessionStorage.getItem("scrollTo");
     if (sectionId) {
       const section = document.getElementById(sectionId);
-      if (VALID_SECTIONS.includes(sectionId as (typeof VALID_SECTIONS)[number])) {
-        setActive(sectionId as (typeof VALID_SECTIONS)[number]);
+      if (VALID_SECTIONS.includes(sectionId as SectionId)) {
+        setActive(sectionId as SectionId);
       }
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -37,17 +45,19 @@ const Navbar = () => {
     } //scroll to section stored in sessionStorage (if any) after finish navigating
   }, [location.pathname]); //-> when path is changed run these lines of code
   const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+
     try {
-      const section = document.getElementById(sectionId);
       //if not root page, then navigate to it
-      if (location.pathname != "/") {
+      if (location.pathname !== "/") {
         navigate(`/`);
         sessionStorage.setItem("scrollTo", sectionId);
         //storing sectionId selected to scroll to that section after navigation is complete -> useEffect
+        return;
       }
+      const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
-        setIsMenuOpen(false);
       }
     } catch (error) {
       console.log(error);
@@ -58,9 +68,17 @@ const Navbar = () => {
         const yOffset =
           element.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({ top: yOffset, behavior: "smooth" });
-        setIsMenuOpen(false);
       }
     }
+  };
+
+  const handleSectionNavigation = (
+    event: MouseEvent<HTMLAnchorElement>,
+    sectionId: SectionId,
+  ) => {
+    event.preventDefault();
+    setActive(sectionId);
+    scrollToSection(sectionId);
   };
 
   return (
@@ -78,111 +96,26 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("home");
-              scrollToSection("home");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "home"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Home
-          </a>
-
-          <a
-            href="#vision"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("vision");
-              scrollToSection("vision");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "vision"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Vision
-          </a>
-
-          <a
-            href="#platform"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("platform");
-              scrollToSection("platform");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "platform"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Platform
-          </a>
-
-          <a
-            href="#news"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("news");
-              scrollToSection("news");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "news"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Projects
-          </a>
-
-          <a
-            href="#involve"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("involve");
-              scrollToSection("involve");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "involve"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Get Involved
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("about");
-              scrollToSection("about");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "about"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            About
-          </a>
+        <nav className="hidden lg:flex items-center space-x-8">
+          {SECTION_NAV_ITEMS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(event) => handleSectionNavigation(event, id)}
+              className={`font-semibold text-lg lg:text-xl transition-colors relative
+                ${
+                  active === id
+                    ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                    : "text-white/80 hover:text-white"
+                }`}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         {/* Desktop Subscribe Button */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button
             type="button"
             onClick={() =>
@@ -248,8 +181,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden p-2 text-white"
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -258,26 +191,18 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
+        <div className="lg:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
           <div className="container mx-auto flex flex-col space-y-2 px-4">
-            <Link
-              to="/"
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Home
-            </Link>
-            <Link
-              to="/licensee"
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Licensee
-            </Link>
-            <Link
-              to="/shop"
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Shop
-            </Link>
+            {SECTION_NAV_ITEMS.map(({ id, label }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(event) => handleSectionNavigation(event, id)}
+                className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
+              >
+                {label}
+              </a>
+            ))}
             {/* Mobile Locations */}
             {/* <div className="bg-white/5 rounded-lg px-4 py-3">
               <p className="font-medium text-white/90 text-lg mb-2">Locations</p>
