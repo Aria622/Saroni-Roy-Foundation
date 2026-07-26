@@ -95,7 +95,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-8">
           {SECTION_NAV_ITEMS.map(({ id, label }) => (
             <a
               key={id}
@@ -114,7 +114,7 @@ const Navbar = () => {
         </nav>
 
         {/* Desktop Subscribe Button */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button
             type="button"
             onClick={() =>
@@ -180,7 +180,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-white"
+          className="lg:hidden p-2 text-white"
           onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
           aria-label="Toggle menu"
         >
@@ -190,7 +190,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
+        <div className="lg:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
           <div className="container mx-auto flex flex-col space-y-2 px-4">
             {SECTION_NAV_ITEMS.map(({ id, label }) => (
               <a
