@@ -260,24 +260,72 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
           <div className="container mx-auto flex flex-col space-y-2 px-4">
-            <Link
-              to="/"
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                setActive("home");
+                scrollToSection("home");
+              }}
               className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
             >
               Home
-            </Link>
-            <Link
-              to="/licensee"
+            </a>
+            <a
+              href="#vision"
+              onClick={(e) => {
+                e.preventDefault();
+                setActive("vision");
+                scrollToSection("vision");
+              }}
               className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
             >
-              Licensee
-            </Link>
-            <Link
-              to="/shop"
+              Vision
+            </a>
+            <a
+              href="#platform"
+              onClick={(e) => {
+                e.preventDefault();
+                setActive("platform");
+                scrollToSection("platform");
+              }}
               className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
             >
-              Shop
-            </Link>
+              Platform
+            </a>
+            <a
+              href="#news"
+              onClick={(e) => {
+                e.preventDefault();
+                setActive("news");
+                scrollToSection("news");
+              }}
+              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
+            >
+              Projects
+            </a>
+            <a
+              href="#involve"
+              onClick={(e) => {
+                e.preventDefault();
+                setActive("involve");
+                scrollToSection("involve");
+              }}
+              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
+            >
+              Get Involved
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                setActive("about");
+                scrollToSection("about");
+              }}
+              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
+            >
+              About
+            </a>
             {/* Mobile Locations */}
             {/* <div className="bg-white/5 rounded-lg px-4 py-3">
               <p className="font-medium text-white/90 text-lg mb-2">Locations</p>
