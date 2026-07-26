@@ -45,6 +45,8 @@ const Navbar = () => {
     } //scroll to section stored in sessionStorage (if any) after finish navigating
   }, [location.pathname]); //-> when path is changed run these lines of code
   const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+
     try {
       const section = document.getElementById(sectionId);
       //if not root page, then navigate to it
@@ -55,7 +57,6 @@ const Navbar = () => {
       }
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
-        setIsMenuOpen(false);
       }
     } catch (error) {
       console.log(error);
@@ -66,7 +67,6 @@ const Navbar = () => {
         const yOffset =
           element.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({ top: yOffset, behavior: "smooth" });
-        setIsMenuOpen(false);
       }
     }
   };
@@ -181,7 +181,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2 text-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
