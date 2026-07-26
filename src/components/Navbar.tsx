@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -13,12 +13,20 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const VALID_SECTIONS = ["home", "vision", "platform", "news", "involve", "about"] as const;
+type SectionId = (typeof VALID_SECTIONS)[number];
+
+const SECTION_NAV_ITEMS: ReadonlyArray<{ id: SectionId; label: string }> = [
+  { id: "home", label: "Home" },
+  { id: "vision", label: "Vision" },
+  { id: "platform", label: "Platform" },
+  { id: "news", label: "Projects" },
+  { id: "involve", label: "Get Involved" },
+  { id: "about", label: "About" },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [active, setActive] = useState<
-    "home" | "vision" | "platform" | "news" | "involve" | "about"
-  >("home");
+  const [active, setActive] = useState<SectionId>("home");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -26,8 +34,8 @@ const Navbar = () => {
     const sectionId = sessionStorage.getItem("scrollTo");
     if (sectionId) {
       const section = document.getElementById(sectionId);
-      if (VALID_SECTIONS.includes(sectionId as (typeof VALID_SECTIONS)[number])) {
-        setActive(sectionId as (typeof VALID_SECTIONS)[number]);
+      if (VALID_SECTIONS.includes(sectionId as SectionId)) {
+        setActive(sectionId as SectionId);
       }
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -63,6 +71,15 @@ const Navbar = () => {
     }
   };
 
+  const handleSectionNavigation = (
+    event: MouseEvent<HTMLAnchorElement>,
+    sectionId: SectionId,
+  ) => {
+    event.preventDefault();
+    setActive(sectionId);
+    scrollToSection(sectionId);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-black">
       <div className="container mx-auto flex items-center justify-between h-30 px-8">
@@ -79,106 +96,21 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("home");
-              scrollToSection("home");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "home"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Home
-          </a>
-
-          <a
-            href="#vision"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("vision");
-              scrollToSection("vision");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "vision"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Vision
-          </a>
-
-          <a
-            href="#platform"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("platform");
-              scrollToSection("platform");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "platform"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Platform
-          </a>
-
-          <a
-            href="#news"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("news");
-              scrollToSection("news");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "news"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Projects
-          </a>
-
-          <a
-            href="#involve"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("involve");
-              scrollToSection("involve");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "involve"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            Get Involved
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("about");
-              scrollToSection("about");
-            }}
-            className={`font-semibold text-lg lg:text-xl transition-colors relative
-              ${
-                active === "about"
-                  ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
-                  : "text-white/80 hover:text-white"
-              }`}
-          >
-            About
-          </a>
+          {SECTION_NAV_ITEMS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(event) => handleSectionNavigation(event, id)}
+              className={`font-semibold text-lg lg:text-xl transition-colors relative
+                ${
+                  active === id
+                    ? 'text-[#c9a300] after:content-[""] after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-10 after:bg-[#c9a300] after:rounded'
+                    : "text-white/80 hover:text-white"
+                }`}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         {/* Desktop Subscribe Button */}
@@ -260,72 +192,16 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-lg w-full shadow-lg py-6 border-t border-white/10 animate-fade-in">
           <div className="container mx-auto flex flex-col space-y-2 px-4">
-            <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                setActive("home");
-                scrollToSection("home");
-              }}
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Home
-            </a>
-            <a
-              href="#vision"
-              onClick={(e) => {
-                e.preventDefault();
-                setActive("vision");
-                scrollToSection("vision");
-              }}
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Vision
-            </a>
-            <a
-              href="#platform"
-              onClick={(e) => {
-                e.preventDefault();
-                setActive("platform");
-                scrollToSection("platform");
-              }}
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Platform
-            </a>
-            <a
-              href="#news"
-              onClick={(e) => {
-                e.preventDefault();
-                setActive("news");
-                scrollToSection("news");
-              }}
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Projects
-            </a>
-            <a
-              href="#involve"
-              onClick={(e) => {
-                e.preventDefault();
-                setActive("involve");
-                scrollToSection("involve");
-              }}
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              Get Involved
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                setActive("about");
-                scrollToSection("about");
-              }}
-              className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
-            >
-              About
-            </a>
+            {SECTION_NAV_ITEMS.map(({ id, label }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(event) => handleSectionNavigation(event, id)}
+                className="font-medium text-white/90 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg px-4 py-3 transition-colors text-lg block"
+              >
+                {label}
+              </a>
+            ))}
             {/* Mobile Locations */}
             {/* <div className="bg-white/5 rounded-lg px-4 py-3">
               <p className="font-medium text-white/90 text-lg mb-2">Locations</p>
