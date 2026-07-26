@@ -48,13 +48,14 @@ const Navbar = () => {
     setIsMenuOpen(false);
 
     try {
-      const section = document.getElementById(sectionId);
       //if not root page, then navigate to it
-      if (location.pathname != "/") {
+      if (location.pathname !== "/") {
         navigate(`/`);
         sessionStorage.setItem("scrollTo", sectionId);
         //storing sectionId selected to scroll to that section after navigation is complete -> useEffect
+        return;
       }
+      const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
